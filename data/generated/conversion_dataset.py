@@ -30,7 +30,7 @@ def read_input_file(input_file):
     targets = data[:, -1]  # The last column as the target
     return features, targets
 
-def write_dat_file(output_file, X_train, y_train, X_test, y_test, m, n, nu):
+def write_dat_file(output_file, X_train, y_tr, X_test, y_te, m, n, nu):
     """
     Write the data in the specified .dat file format.
     """
@@ -42,32 +42,32 @@ def write_dat_file(output_file, X_train, y_train, X_test, y_test, m, n, nu):
         f.write(f"# Dimensions(m,n)\nparam m := {m};\nparam n := {n};\n\n")
         f.write(f"param nu := {nu};\n\n")
 
-        # Writing y_train
-        f.write("# y_train\n")
-        f.write("param y_train :=\n")
-        for i in range(len(y_train)):
-            f.write(f"{i + 1}\t{y_train[i]}\n")
+        # Writing y_tr
+        f.write("# y_tr\n")
+        f.write("param y_tr :=\n")
+        for i in range(len(y_tr)):
+            f.write(f"{i + 1}\t{y_tr[i]}\n")
         f.write(";\n\n")
 
-        # Writing A_train
-        f.write("# A_train\n")
-        f.write(f"param A_train : 1 2 3 4 :=\n")
+        # Writing A_tr
+        f.write("# A_tr\n")
+        f.write(f"param A_tr : 1 2 3 4 :=\n")
         for i in range(len(X_train)):
             f.write(f"{i + 1}\t")
             f.write("\t".join(map(str, X_train[i])))
             f.write("\n")
         f.write(";\n\n")
 
-        # Writing y_test
-        f.write("# y_test\n")
-        f.write("param y_test :=\n")
-        for i in range(len(y_test)):
-            f.write(f"{i + 1}\t{y_test[i]}\n")
+        # Writing y_te
+        f.write("# y_te\n")
+        f.write("param y_te :=\n")
+        for i in range(len(y_te)):
+            f.write(f"{i + 1}\t{y_te[i]}\n")
         f.write(";\n\n")
 
-        # Writing A_test
-        f.write("# A_test\n")
-        f.write(f"param A_test : 1 2 3 4 :=\n")
+        # Writing A_te
+        f.write("# A_te\n")
+        f.write(f"param A_te : 1 2 3 4 :=\n")
         for i in range(len(X_test)):
             f.write(f"{i + 1}\t")
             f.write("\t".join(map(str, X_test[i])))
@@ -87,12 +87,12 @@ def convert_to_dat(input_file, output_file, test_size=0.5, nu=0.9):
 
     # Train/Test split (simple slicing, here we use the first 50% for training and the rest for testing)
     X_train = features[:m]
-    y_train = targets[:m]
+    y_tr = targets[:m]
     X_test = features[m:]
-    y_test = targets[m:]
+    y_te = targets[m:]
 
     # Write the formatted data to the .dat file
-    write_dat_file(output_file, X_train, y_train, X_test, y_test, m, n, nu)
+    write_dat_file(output_file, X_train, y_tr, X_test, y_te, m, n, nu)
     print(f"Data has been written to {output_file}")
 
 # Example Usage
