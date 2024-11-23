@@ -1,0 +1,7 @@
+## code to generate data runed in terminal
+
+chmod +x gensvmdat-mac   
+cd /Users/ali/Desktop/MASTER/OTDM/otdm-svm/otdm-svm-optimization/data/generated
+./gensvmdat-mac   
+sudo spctl --master-disable
+./gensvmdat-mac data.txt 100 4805
