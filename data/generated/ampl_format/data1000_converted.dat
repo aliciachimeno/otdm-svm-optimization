@@ -1,6 +1,4 @@
 # Train and test dataset
-# 50/50
-# Seed 66407
 
 # Dimensions(m,n)
 param m := 500;

@@ -1,4 +1,6 @@
 reset;
+
+# solve primal
 print "SVM PRIMAL:";
 
 model svm-primal.mod;
@@ -12,3 +14,16 @@ display w, gamma, s;
 
 
 
+
+
+# Solve the dual
+reset;
+print "SVM_DUAL:";
+model svm-dual.mod;
+data "./data/generated/ampl_format/data1000_converted.dat"; #spambase #size100-seed66407 #size2000-seed75421
+
+option solver cplex;
+
+problem SVM_DUAL: lambda, dual, c1;
+solve SVM_DUAL;
+display lambda;
