@@ -51,7 +51,7 @@ def write_dat_file(output_file, X_train, y_tr, X_test, y_te, m, n, nu):
 
         # Writing A_tr
         f.write("# A_tr\n")
-        f.write(f"param A_tr : 1 2 3 4 :=\n")
+        f.write(f"param A_tr : 1 {' '.join(map(str, range(2, n+1)))} :=\n")
         for i in range(len(X_train)):
             f.write(f"{i + 1}\t")
             f.write("\t".join(map(str, X_train[i])))
@@ -67,7 +67,7 @@ def write_dat_file(output_file, X_train, y_tr, X_test, y_te, m, n, nu):
 
         # Writing A_te
         f.write("# A_te\n")
-        f.write(f"param A_te : 1 2 3 4 :=\n")
+        f.write(f"param A_te : 1 {' '.join(map(str, range(2, n+1)))} :=\n")
         for i in range(len(X_test)):
             f.write(f"{i + 1}\t")
             f.write("\t".join(map(str, X_test[i])))
@@ -96,6 +96,6 @@ def convert_to_dat(input_file, output_file, test_size=0.5, nu=0.9):
     print(f"Data has been written to {output_file}")
 
 # Example Usage
-input_file = "raw/train_enc.txt"  # Input dataset file (the original data)
+input_file = "raw/real_dataset.txt"  # Input dataset file (the original data)
 output_file = "ampl_format/train_enc_converted.dat"  # Output AMPL-compatible .dat file
 convert_to_dat(input_file, output_file)
