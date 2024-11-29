@@ -1,13 +1,11 @@
 # Parameters:
-param n; 				
+param n; 		
 param m; 		
-param nu;              	
-
-param y_tr {1..m};        	
-param A_tr {1..m,1..n};   	
-
-param y_te {1..m};        	# response value
-param A_te {1..m,1..n};   	# feature values
+param nu;              	       	
+param A_tr {1..m,1..n}; 
+param y_tr {1..m};   	       	
+param A_te {1..m,1..n};   
+param y_te {1..m}; 
 
 # Variables
 var lambda {1..m} >= 0, <= nu;
