@@ -96,6 +96,6 @@ def convert_to_dat(input_file, output_file, test_size=0.5, nu=0.9):
     print(f"Data has been written to {output_file}")
 
 # Example Usage
-input_file = "raw/data1000.txt"  # Input dataset file (the original data)
-output_file = "ampl_format/data1000_converted.dat"  # Output AMPL-compatible .dat file
+input_file = "raw/synthetic1000-4805.txt"  # Input dataset file (the original data)
+output_file = "synthetic-transformed-1000-4805.dat"  # Output AMPL-compatible .dat file
 convert_to_dat(input_file, output_file)
