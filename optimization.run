@@ -42,8 +42,10 @@ display w;
 
 
 param gamma;
+param threshold = 0.01;
 for {i in {1..m}} {
-	if lambda[i] > 0.01 and lambda[i] < nu*0.99 then {
+	if lambda[i] > threshold and lambda[i] < nu*(1-threshold) # dual condition
+	then {
 		let gamma := 1/y_tr[i] - sum{j in {1..n}} w[j]*A_tr[i,j];
 		break;
 	}
